@@ -1,0 +1,194 @@
+/* Style for the title at the top */
+.title-container {
+    position: absolute;
+    top: 41%;  /* Adjust the distance from the top */
+    left: 40%;
+    transform: translateX(-50%);
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 50px;
+    color: #00ff96;
+    text-shadow: 0 0 10px rgba(0, 255, 150, 0.8);
+}
+
+#connection-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 15px;
+    color: #00ff96;
+    position: absolute; /* Add this */
+    left: -85px; /* Adjust this value to move it further left or right */
+    top: -10px; /* Adjust this value to move it up or down */
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: orange; /* Default to connecting state */
+    box-shadow: 0 0 5px orange;
+}
+
+.status-text {
+    text-shadow: 0 0 5px rgba(0, 255, 150, 0.8);
+}
+
+/* Green for connected */
+.connected .status-dot {
+    background-color: #00ff96;
+    box-shadow: 0 0 5px #00ff96;
+}
+
+.connected .status-text {
+    color: #00ff96;
+}
+
+/* Red for not connected */
+.not-connected .status-dot {
+    background-color: red;
+    box-shadow: 0 0 5px red;
+}
+
+.not-connected .status-text {
+    color: red;
+}
+
+/* Orange for connecting */
+.connecting .status-dot {
+    background-color: orange;
+    box-shadow: 0 0 5px orange;
+}
+
+.connecting .status-text {
+    color: orange;
+}
+
+/* Terminal container styles (your existing styles here) */
+body {
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    color: white;
+}
+
+.terminal-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #161b22;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.5), 
+        0 0 15px rgba(0, 255, 150, 0.5);
+    border: 1px solid rgba(0, 255, 150, 0.5);
+}
+
+/* Your other existing styles... */
+
+
+
+.terminal-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #161b22;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.5), 
+        0 0 15px rgba(0, 255, 150, 0.5);
+    border: 1px solid rgba(0, 255, 150, 0.5);
+}
+
+.price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 120px;  /* Smaller box size */
+    background: #0d1117;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 150, 0.5);
+}
+
+/* Label */
+.price-label {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 15px;
+    color: #00ff96;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: none;
+}
+
+/* New display container with two sub-boxes */
+.led-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 3px;
+}
+
+/* Box for integer part (first 3 digits) */
+.integer-box {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap between digits */
+}
+
+/* Box for decimal part (last 2 digits) */
+.decimal-box {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap between digits */
+}
+
+/* Digit container */
+.digit {
+    position: relative;
+    width: 40px;
+    height: 70px;
+    font-size: 32px; /* Default font size for digits */
+}
+
+.segment {
+    position: absolute;
+    background: rgba(0, 255, 150, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 255, 150, 0.5);
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.segment.on {
+    background: rgba(0, 255, 150, 1);
+    box-shadow: 0 0 15px rgba(0, 255, 150, 0.8);
+}
+
+/* Segments Positions */
+.segment.a { top: 0; left: 10%; width: 80%; height: 15%; }
+.segment.b { top: 10%; right: 0; width: 15%; height: 40%; }
+.segment.c { bottom: 10%; right: 0; width: 15%; height: 40%; }
+.segment.d { bottom: 0; left: 10%; width: 80%; height: 15%; }
+.segment.e { bottom: 10%; left: 0; width: 15%; height: 40%; }
+.segment.f { top: 10%; left: 0; width: 15%; height: 40%; }
+.segment.g { top: 50%; left: 10%; width: 80%; height: 15%; transform: translateY(-50%); }
+
+/* Apply white color to the decimal digits (4th and 5th) */
+
+/* Make the 4th and 5th digits smaller but align them with the others */
+#sol-display .digit:nth-child(4),
+#sol-display .digit:nth-child(5) {
+    font-size: 20px !important; /* Reduce size for 4th and 5th digits */
+    transform: scale(0.7); /* Apply scaling to shrink digits */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the top of the segments with the other digits */
+    line-height: 70px; /* Ensure vertical alignment */
+} 
